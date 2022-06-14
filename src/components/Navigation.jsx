@@ -48,8 +48,8 @@ const Navigation = () => {
       <div
         className={
           nav
-            ? "md:hidden w-[60%] h-screen top-20 left-0 absolute text-lg text-[#2c2d2ea6] transition ease-in-out delay-1000"
-            : "absolute top-20 left-[-100%]"
+            ? "md:hidden w-[60%] h-screen top-20 left-0 absolute text-lg transition ease-in-out delay-1000"
+            : "absolute left-[-100%]"
         }
       >
         <ul>
