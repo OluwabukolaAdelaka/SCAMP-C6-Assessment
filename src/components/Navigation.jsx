@@ -14,7 +14,7 @@ const Navigation = () => {
   return (
     <div className="max-w-[1440px] flex justify-between mx-auto bg-[#f8f9fa] h-20 px-6 items-center">
       <div className="flex">
-        <div onClick={handleNav}>
+        <div className="md:hidden" onClick={handleNav}>
           {nav ? (
             <AiOutlineClose size={40} className="pr-4" />
           ) : (
@@ -25,20 +25,20 @@ const Navigation = () => {
           <img src={Logo} className="pt-2" alt="logo" />
         </div>
         {/* desktop */}
-        <ul className="hidden md:flex text-lg ml-9 text-[#2c2d2ea6]">
-          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+        <ul className="hidden md:flex text-lg ml-4 lg:ml-9 cursor-pointer text-[#2c2d2ea6]">
+          <li className="px-[10px] lg:px-[25px] py-[6px] hover:border-b-2 hover:border-b-primary-100">
             Collections
           </li>
-          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+          <li className="px-[10px] lg:px-[25px] py-[6px] hover:border-b-2 hover:border-b-primary-100">
             Women
           </li>
-          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+          <li className="px-[10px] lg:px-[25px] py-[6px] hover:border-b-2 hover:border-b-primary-100">
             Men
           </li>
-          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+          <li className="px-[10px] lg:px-[25px] py-[6px] hover:border-b-2 hover:border-b-primary-100">
             About
           </li>
-          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+          <li className="px-[10px] lg:px-[25px] py-[6px] hover:border-b-2 hover:border-b-primary-100">
             Contact
           </li>
         </ul>
@@ -48,36 +48,34 @@ const Navigation = () => {
       <div
         className={
           nav
-            ? "md:hidden w-[60%] h-screen top-20 left-0 absolute text-lg transition ease-in-out delay-1000"
+            ? "md:hidden w-[60%] h-screen top-20 left-0 absolute text-lg font-bold cursor-pointer"
             : "absolute left-[-100%]"
         }
       >
         <ul>
-          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-primary-100">
             Collections
           </li>
-          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-primary-100">
             Women
           </li>
-          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-primary-100">
             Men
           </li>
-          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-primary-100">
             About
           </li>
-          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-primary-100">
             Contact
           </li>
         </ul>
       </div>
       <div className="flex">
-        <img
-          src={Cart}
-          className="relative w-[50%] h-[50%] pt-3 mr-6 md:mr-8"
-          alt="shopping cart"
-        />
-        <div className="absolute bg-primary-100 w-6 right-[70px] text-white text-center rounded-full">
-          0
+        <div className="flex relative pt-3 mr-6 md:mr-8">
+          <img src={Cart} className="w-[30px] " alt="shopping cart" />
+          <div className="absolute bg-primary-100 w-6 right-[-12px] bottom-[15px] text-white text-center rounded-full">
+            0
+          </div>
         </div>
 
         <img
