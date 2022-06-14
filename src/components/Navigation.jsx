@@ -48,8 +48,8 @@ const Navigation = () => {
       <div
         className={
           nav
-            ? "flex flex-col md:hidden w-[60%] h-screen top-20 left-0 absolute text-lg ml-9 text-[#2c2d2ea6]"
-            : "absolute w-[300px] top-20 left-[-100%] transition ease-in-out delay-1000"
+            ? "md:hidden w-[60%] h-screen top-20 left-0 absolute text-lg text-[#2c2d2ea6] transition ease-in-out delay-1000"
+            : "absolute top-20 left-[-100%]"
         }
       >
         <ul>
@@ -76,6 +76,9 @@ const Navigation = () => {
           className="relative w-[50%] h-[50%] pt-3 mr-6 md:mr-8"
           alt="shopping cart"
         />
+        <div className="absolute bg-primary-100 w-6 right-[70px] text-white text-center rounded-full">
+          0
+        </div>
 
         <img
           src={Avatar}
