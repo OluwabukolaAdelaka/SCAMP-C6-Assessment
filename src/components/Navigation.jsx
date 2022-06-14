@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/logo.svg";
 import Cart from "../assets/icon-cart.svg";
 import Avatar from "../assets/image-avatar.png";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Navigation = () => {
+  const [nav, setNav] = useState(false);
+  const handleNav = () => {
+    setNav(!nav);
+  };
+
   return (
     <div className="max-w-[1440px] flex justify-between mx-auto bg-[#f8f9fa] h-20 px-6 items-center">
       <div className="flex">
-        <GiHamburgerMenu size={40} className="pr-4" />
+        <div onClick={handleNav}>
+          {nav ? (
+            <AiOutlineClose size={40} className="pr-4" />
+          ) : (
+            <GiHamburgerMenu size={40} className="pr-4" />
+          )}
+        </div>
         <div>
           <img src={Logo} className="pt-2" alt="logo" />
         </div>
@@ -32,6 +44,32 @@ const Navigation = () => {
         </ul>
       </div>
 
+      {/* mobile */}
+      <div
+        className={
+          nav
+            ? "flex flex-col md:hidden w-[60%] h-screen top-20 left-0 absolute text-lg ml-9 text-[#2c2d2ea6]"
+            : "absolute w-[300px] top-20 left-[-100%] transition ease-in-out delay-1000"
+        }
+      >
+        <ul>
+          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+            Collections
+          </li>
+          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+            Women
+          </li>
+          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+            Men
+          </li>
+          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+            About
+          </li>
+          <li className="px-[25px] py-[6px] hover:border-b-2 hover:border-b-[#f1730c]">
+            Contact
+          </li>
+        </ul>
+      </div>
       <div className="flex">
         <img
           src={Cart}
