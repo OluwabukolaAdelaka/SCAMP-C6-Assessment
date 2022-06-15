@@ -10,7 +10,7 @@ import productThumb3 from "../assets/image-product-3-thumbnail.jpg";
 import productThumb4 from "../assets/image-product-4-thumbnail.jpg";
 import LightGallery from "lightgallery/react";
 
-const Collections = () => {
+const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
   const onInit = () => {
     console.log("lightGallery has been initialized");
   };
@@ -82,15 +82,25 @@ const Collections = () => {
         </div>
         <div className="block md:flex mt-6">
           <div className="bg-[#f8f9fa] w-full h-16 md:w-[30%] flex justify-between mr-12 px-3">
-            <button className="text-primary-100 text-3xl font-bold cursor-pointer">
+            <button
+              disabled={count <= 0}
+              onClick={onDecrement}
+              className="text-primary-100 text-3xl font-bold cursor-pointer"
+            >
               -
             </button>
-            <p className="text-xl font-bold pt-5">0</p>
-            <button className="text-primary-100 text-3xl font-bold cursor-pointer">
+            <p className="text-xl font-bold pt-5">{count}</p>
+            <button
+              onClick={onIncrement}
+              className="text-primary-100 text-3xl font-bold cursor-pointer"
+            >
               +
             </button>
           </div>
-          <button className="flex bg-primary-100 text-white justify-center text-center w-full md:w-[300px] mt-4 py-4 md:px-6 border rounded-lg">
+          <button
+            onClick={onAdd}
+            className="flex bg-primary-100 text-white justify-center text-center w-full md:w-[300px] mt-4 py-4 md:px-6 border rounded-lg"
+          >
             <BsCart3 size={20} className="mx-3" />
             Add to Cart
           </button>

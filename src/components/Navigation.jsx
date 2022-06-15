@@ -5,14 +5,14 @@ import Avatar from "../assets/image-avatar.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 
-const Navigation = () => {
+const Navigation = ({ cart }) => {
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
   };
 
   return (
-    <div className="max-w-[1440px] flex justify-between mx-auto bg-[#f8f9fa] h-20 px-6 items-center">
+    <div className="max-w-[1240px] flex justify-between mx-auto bg-[#f8f9fa] h-20 px-6 items-center">
       <div className="flex">
         <div className="md:hidden" onClick={handleNav}>
           {nav ? (
@@ -72,15 +72,19 @@ const Navigation = () => {
       </div>
       <div className="flex">
         <div className="flex relative pt-3 mr-6 md:mr-8">
-          <img src={Cart} className="w-[30px] " alt="shopping cart" />
+          <img
+            src={Cart}
+            className="w-[30px] cursor-pointer"
+            alt="shopping cart"
+          />
           <div className="absolute bg-primary-100 w-6 right-[-12px] bottom-[15px] text-white text-center rounded-full">
-            0
+            {cart}
           </div>
         </div>
 
         <img
           src={Avatar}
-          className="w-[40px] hover:border-2 hover:rounded-[50%] hover:border-[#f1730c]"
+          className="w-[40px] cursor-pointer hover:border-2 hover:rounded-[50%] hover:border-[#f1730c]"
           alt="user avatar"
         />
       </div>
