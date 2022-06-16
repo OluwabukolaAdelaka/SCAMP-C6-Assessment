@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsCart3 } from "react-icons/bs";
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import Product1 from "../assets/product1.jpg";
 import Product2 from "../assets/image-product-2.jpg";
 import Product3 from "../assets/image-product-3.jpg";
@@ -14,17 +15,37 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
 
 const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
+  const slides = [
+    { img: Product1 },
+    { img: Product2 },
+    { img: Product3 },
+    { img: Product4 },
+  ];
+
+  const [current, setCurrent] = useState(0);
+  const length = slides.length;
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+  // light gallery
   const onInit = () => {
     console.log("lightGallery has been initialized");
   };
   return (
     <div className="max-w-[1240px] h-screen mx-auto py-8 grid lg:grid-cols-2 gap-8 px-4">
       <div className="">
-        <img
-          src={Product1}
-          className="border rounded-xl cursor-pointer"
-          alt="product"
-        />
+        <div className="hidden md:flex">
+          <img
+            src={Product1}
+            className="border rounded-xl cursor-pointer"
+            alt="product"
+          />
+        </div>
         <div className="hidden md:flex">
           <LightGallery onInit={onInit} speed={300}>
             <div className="hidden md:flex pt-6">
@@ -60,7 +81,26 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
           </LightGallery>
         </div>
       </div>
+      {/* mobile carousel */}
+      <div className="flex justify-center items-center  md:hidden relative">
+        <MdKeyboardArrowRight
+          size={40}
+          className="absolute border rounded-full bg-[#fff] top-[50%] right-[30px]"
+          onClick={nextSlide}
+        />
+        <MdKeyboardArrowLeft
+          size={40}
+          className="absolute border rounded-full bg-[#fff] top-[50%] left-[30px]"
+          onClick={prevSlide}
+        />
+        {slides.map((slide, index) => (
+          <div key={index} className="">
+            {index === current && <img src={slide.img} alt="product" />}
+          </div>
+        ))}
+      </div>
 
+      {/* Text Part */}
       <div className="pt-[5%] xl:pt-[15%] px-3">
         <h4 className="text-primary-100 text-3xl pb-4">SNEAKER COMPANY</h4>
         <h1 className="text-4xl lg:text-5xl font-bold pb-4 lg:pb-8">
