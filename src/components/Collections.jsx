@@ -10,9 +10,7 @@ import productThumb2 from "../assets/image-product-2-thumbnail.jpg";
 import productThumb3 from "../assets/image-product-3-thumbnail.jpg";
 import productThumb4 from "../assets/image-product-4-thumbnail.jpg";
 import LightGallery from "lightgallery/react";
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-thumbnail.css";
+
 
 const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
   const slides = [

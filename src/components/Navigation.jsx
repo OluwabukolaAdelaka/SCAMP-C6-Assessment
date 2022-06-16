@@ -1,14 +1,56 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo.svg";
 import Cart from "../assets/icon-cart.svg";
+import Product1 from "../assets/product1.jpg";
 import Avatar from "../assets/image-avatar.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
+import { ToastContainer, toast } from "react-toastify";
 
 const Navigation = ({ cart }) => {
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
+  };
+
+  const viewCart = () => {
+    cart === 0
+      ? toast.warn("Your cart is empty, please select item(s)")
+      : toast(
+          <div>
+            <h3 className="text-xl font-bold">Cart</h3>
+            <div className="flex">
+              <img
+                src={Product1}
+                className="w-[50%] h-[50%] border rounded-xl"
+                alt="product"
+              />
+              <div className="text-md font-bold text-secondary-100 pb-4 pl-2">
+                <p>Fall Limited Edition Sneakers</p>
+                <p className="text-md text-secondary-200">$125.00 x {cart}</p>
+                <small className="text-lg text-secondary-100 ">
+                  ${cart * 125}
+                </small>
+              </div>
+            </div>
+            <button
+              onClick={processingOrder}
+              className="w-full border rounded-md bg-primary-100 text-white justify-center text-center"
+            >
+              Checkout
+            </button>
+          </div>
+        );
+  };
+
+  const processingOrder = () => {
+    const resolveAfter2Sec = new Promise((resolve) =>
+      setTimeout(resolve, 2000)
+    );
+    toast.promise(resolveAfter2Sec, {
+      pending: "Processing your order",
+      success: "Your order is processed 👌",
+    });
   };
 
   return (
@@ -71,7 +113,7 @@ const Navigation = ({ cart }) => {
         </ul>
       </div>
       <div className="flex">
-        <div className="flex relative pt-3 mr-6 md:mr-8">
+        <button onClick={viewCart} className="flex relative pt-3 mr-6 md:mr-8">
           <img
             src={Cart}
             className="w-[30px] cursor-pointer"
@@ -81,7 +123,7 @@ const Navigation = ({ cart }) => {
           <div className="absolute bg-primary-100 w-6 right-[-12px] bottom-[15px] text-white text-center rounded-full">
             {cart}
           </div>
-        </div>
+        </button>
 
         <img
           src={Avatar}
@@ -89,6 +131,7 @@ const Navigation = ({ cart }) => {
           alt="user avatar"
         />
       </div>
+      <ToastContainer />
     </div>
   );
 };
