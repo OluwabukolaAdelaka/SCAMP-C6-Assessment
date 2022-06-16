@@ -17,7 +17,7 @@ const Navigation = ({ cart }) => {
     cart === 0
       ? toast.warn("Your cart is empty, please select item(s)")
       : toast(
-          <div>
+          <div className="px-2">
             <h3 className="text-xl font-bold">Cart</h3>
             <div className="flex">
               <img
@@ -26,8 +26,10 @@ const Navigation = ({ cart }) => {
                 alt="product"
               />
               <div className="text-md font-bold text-secondary-100 pb-4 pl-2">
-                <p>Fall Limited Edition Sneakers</p>
-                <p className="text-md text-secondary-200">$125.00 x {cart}</p>
+                <p className="pb-2 pt-4">Fall Limited Edition Sneakers</p>
+                <p className="text-md text-secondary-200 pb-2">
+                  $125.00 x {cart}
+                </p>
                 <small className="text-lg text-secondary-100 ">
                   ${cart * 125}
                 </small>
@@ -90,7 +92,7 @@ const Navigation = ({ cart }) => {
       <div
         className={
           nav
-            ? "md:hidden w-[60%] bg-[#fff] h-screen top-20 left-0 absolute text-lg font-bold cursor-pointer"
+            ? "md:hidden w-[60%] bg-[#fff] h-screen z-20 top-20 left-0 absolute text-lg font-bold cursor-pointer"
             : "absolute left-[-100%]"
         }
       >

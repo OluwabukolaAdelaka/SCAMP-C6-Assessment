@@ -20,6 +20,7 @@ function App() {
 
   const addToCart = () => {
     setCart(count);
+    setCount(0);
   };
 
   return (
