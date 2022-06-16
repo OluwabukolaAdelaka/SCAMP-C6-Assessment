@@ -9,6 +9,9 @@ import productThumb2 from "../assets/image-product-2-thumbnail.jpg";
 import productThumb3 from "../assets/image-product-3-thumbnail.jpg";
 import productThumb4 from "../assets/image-product-4-thumbnail.jpg";
 import LightGallery from "lightgallery/react";
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lg-thumbnail.css";
 
 const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
   const onInit = () => {
@@ -22,34 +25,34 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
           className="border rounded-xl cursor-pointer"
           alt="product"
         />
-        <div className="">
+        <div className="hidden md:flex">
           <LightGallery onInit={onInit} speed={300}>
-            <div className="md:flex pt-4">
+            <div className="hidden md:flex pt-6">
               <a href={Product1} className="border rounded-xl">
                 <img
                   src={productThumb1}
-                  className="border rounded-xl opacity-50 cursor-pointer hover:opacity-100 hover:transition"
+                  className="border-2 border-primary-100 rounded-xl opacity-40 cursor-pointer hover:transition"
                   alt="Product 1"
                 />
               </a>
-              <a href={Product2} className="border rounded-xl">
+              <a href={Product2} className="border rounded-xl object-contain">
                 <img
                   src={productThumb2}
-                  className="border rounded-xl opacity-50 cursor-pointer hover:opacity-100"
+                  className="border rounded-xl cursor-pointer"
                   alt="Product 2"
                 />
               </a>
-              <a href={Product3} className="border rounded-xl">
+              <a href={Product3} className="border rounded-xl object-contain">
                 <img
                   src={productThumb3}
-                  className="border rounded-xl opacity-50 cursor-pointer hover:opacity-100"
+                  className="border rounded-xl cursor-pointer "
                   alt="Product 3"
                 />
               </a>
               <a href={Product4} className="border rounded-xl">
                 <img
                   src={productThumb4}
-                  className="border rounded-xl opacity-50 cursor-pointer hover:opacity-100"
+                  className="border rounded-xl cursor-pointer"
                   alt="Product 4"
                 />
               </a>
