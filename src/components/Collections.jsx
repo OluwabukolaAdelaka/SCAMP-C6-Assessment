@@ -18,7 +18,7 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
     console.log("lightGallery has been initialized");
   };
   return (
-    <div className="max-w-[1240px] h-screen mx-auto py-4 grid lg:grid-cols-2 gap-8 px-4">
+    <div className="max-w-[1240px] h-screen mx-auto py-8 grid lg:grid-cols-2 gap-8 px-4">
       <div className="">
         <img
           src={Product1}
@@ -60,6 +60,7 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
           </LightGallery>
         </div>
       </div>
+
       <div className="pt-[5%] xl:pt-[15%] px-3">
         <h4 className="text-primary-100 text-3xl pb-4">SNEAKER COMPANY</h4>
         <h1 className="text-4xl lg:text-5xl font-bold pb-4 lg:pb-8">

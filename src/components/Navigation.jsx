@@ -16,9 +16,9 @@ const Navigation = ({ cart }) => {
       <div className="flex">
         <div className="md:hidden" onClick={handleNav}>
           {nav ? (
-            <AiOutlineClose size={40} className="pr-4" />
+            <AiOutlineClose size={40} className="pr-4 z-20" />
           ) : (
-            <GiHamburgerMenu size={40} className="pr-4" />
+            <GiHamburgerMenu size={40} className="pr-4 z-20" />
           )}
         </div>
         <div>
@@ -48,7 +48,7 @@ const Navigation = ({ cart }) => {
       <div
         className={
           nav
-            ? "md:hidden w-[60%] h-screen top-20 left-0 absolute text-lg font-bold cursor-pointer"
+            ? "md:hidden w-[60%] bg-[#fff] h-screen top-20 left-0 absolute text-lg font-bold cursor-pointer"
             : "absolute left-[-100%]"
         }
       >
@@ -77,6 +77,7 @@ const Navigation = ({ cart }) => {
             className="w-[30px] cursor-pointer"
             alt="shopping cart"
           />
+
           <div className="absolute bg-primary-100 w-6 right-[-12px] bottom-[15px] text-white text-center rounded-full">
             {cart}
           </div>
