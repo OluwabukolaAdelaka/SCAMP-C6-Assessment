@@ -5,13 +5,15 @@ import Product1 from "../assets/product1.jpg";
 import Product2 from "../assets/image-product-2.jpg";
 import Product3 from "../assets/image-product-3.jpg";
 import Product4 from "../assets/image-product-4.jpg";
-import productThumb1 from "../assets/image-product-1-thumbnail.jpg";
-import productThumb2 from "../assets/image-product-2-thumbnail.jpg";
-import productThumb3 from "../assets/image-product-3-thumbnail.jpg";
-import productThumb4 from "../assets/image-product-4-thumbnail.jpg";
-import LightGallery from "lightgallery/react";
+//import productThumb1 from "../assets/image-product-1-thumbnail.jpg";
+//import productThumb2 from "../assets/image-product-2-thumbnail.jpg";
+//import productThumb3 from "../assets/image-product-3-thumbnail.jpg";
+//import productThumb4 from "../assets/image-product-4-thumbnail.jpg";
+// import LightGallery from "lightgallery/react";
+import Images from "./Images";
 
 const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
+  // mobile caousel
   const slides = [
     { img: Product1 },
     { img: Product2 },
@@ -29,23 +31,49 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
+
+  // // desktop carousel with thumbnail
+  // const products = [
+  //   { image: productThumb1 },
+  //   { image: productThumb2 },
+  //   { image: productThumb3 },
+  //   { image: productThumb4 },
+  // ];
+
+  const [selectedImg, setSelectedImg] = useState(Images[0]);
   // // light gallery
-  const onBeforeSlide = (detail) => {
-    const { index, prevIndex } = detail;
-    console.log(index, prevIndex);
-  };
+  // const onBeforeSlide = (detail) => {
+  //   const { index, prevIndex } = detail;
+  //   console.log(index, prevIndex);
+  // };
 
   return (
     <div className="max-w-[1240px] h-screen mx-auto py-8 grid lg:grid-cols-2 gap-8 px-4">
       <div className="">
         <div className="hidden md:flex">
           <img
-            src={Product1}
+            src={selectedImg}
             className="border rounded-xl cursor-pointer"
             alt="product"
           />
         </div>
+        {/* trial */}
         <div className="hidden md:flex">
+          {Images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              className={
+                selectedImg === image
+                  ? "border rounded-xl w-[25%] h-[25%] cursor-pointer object-contain mt-4 opacity-40"
+                  : "border rounded-xl w-[25%] h-[25%] cursor-pointer object-contain mt-4"
+              }
+              alt="Product"
+              onClick={() => setSelectedImg(image)}
+            />
+          ))}
+        </div>
+        {/* <div className="hidden md:flex">
           <LightGallery
             elementClassNames="custom-wrapper-class"
             onBeforeSlide={onBeforeSlide}
@@ -93,7 +121,7 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
               </a>
             </div>
           </LightGallery>
-        </div>
+        </div> */}
       </div>
       {/* mobile carousel */}
       <div className="flex justify-center items-center  md:hidden relative">
