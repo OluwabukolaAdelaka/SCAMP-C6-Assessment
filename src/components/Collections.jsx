@@ -47,7 +47,7 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
               src={image}
               className={
                 selectedImg === image
-                  ? "border rounded-xl w-[25%] h-[25%] cursor-pointer object-contain mt-4 opacity-40"
+                  ? "border-4 border-primary-100 rounded-xl w-[25%] h-[25%] cursor-pointer object-contain mt-4 opacity-40"
                   : "border rounded-xl w-[25%] h-[25%] cursor-pointer object-contain mt-4"
               }
               alt="Product"
