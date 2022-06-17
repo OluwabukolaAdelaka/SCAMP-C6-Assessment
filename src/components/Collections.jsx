@@ -29,7 +29,7 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
-  // light gallery
+  // // light gallery
   const onBeforeSlide = (detail) => {
     const { index, prevIndex } = detail;
     console.log(index, prevIndex);
