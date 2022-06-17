@@ -11,7 +11,6 @@ import productThumb3 from "../assets/image-product-3-thumbnail.jpg";
 import productThumb4 from "../assets/image-product-4-thumbnail.jpg";
 import LightGallery from "lightgallery/react";
 
-
 const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
   const slides = [
     { img: Product1 },
@@ -31,9 +30,11 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
   // light gallery
-  const onInit = () => {
-    console.log("lightGallery has been initialized");
+  const onBeforeSlide = (detail) => {
+    const { index, prevIndex } = detail;
+    console.log(index, prevIndex);
   };
+
   return (
     <div className="max-w-[1240px] h-screen mx-auto py-8 grid lg:grid-cols-2 gap-8 px-4">
       <div className="">
@@ -45,30 +46,45 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
           />
         </div>
         <div className="hidden md:flex">
-          <LightGallery onInit={onInit} speed={300}>
+          <LightGallery
+            elementClassNames="custom-wrapper-class"
+            onBeforeSlide={onBeforeSlide}
+          >
             <div className="hidden md:flex pt-6">
-              <a href={Product1} className="border rounded-xl">
+              <a
+                href={Product1}
+                className="border rounded-xl object-contain w-[50%] h-[50%] "
+              >
                 <img
                   src={productThumb1}
                   className="border-2 border-primary-100 rounded-xl opacity-40 cursor-pointer hover:transition"
                   alt="Product 1"
                 />
               </a>
-              <a href={Product2} className="border rounded-xl object-contain">
+              <a
+                href={Product2}
+                className="border rounded-xl object-contain w-[50%] h-[50%]"
+              >
                 <img
                   src={productThumb2}
                   className="border rounded-xl cursor-pointer"
                   alt="Product 2"
                 />
               </a>
-              <a href={Product3} className="border rounded-xl object-contain">
+              <a
+                href={Product3}
+                className="border rounded-xl object-contain w-[50%] h-[50%]"
+              >
                 <img
                   src={productThumb3}
                   className="border rounded-xl cursor-pointer "
                   alt="Product 3"
                 />
               </a>
-              <a href={Product4} className="border rounded-xl">
+              <a
+                href={Product4}
+                className="border rounded-xl object-contain w-[50%] h-[50%]"
+              >
                 <img
                   src={productThumb4}
                   className="border rounded-xl cursor-pointer"
@@ -99,7 +115,7 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
       </div>
 
       {/* Text Part */}
-      <div className="pt-[5%] xl:pt-[15%] px-3">
+      <div className="pt-[5%] xl:pt-[15%] px-3 pb-9">
         <h4 className="text-primary-100 text-3xl pb-4">SNEAKER COMPANY</h4>
         <h1 className="text-4xl lg:text-5xl font-bold pb-4 lg:pb-8">
           Fall Limited Edition Sneakers
@@ -141,7 +157,7 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
           </div>
           <button
             onClick={onAdd}
-            className="flex bg-primary-100 text-white justify-center text-center w-full md:w-[300px] mt-4 py-4 md:px-6 border rounded-lg"
+            className="flex bg-primary-100 hover:bg-primary-200 text-white justify-center text-center w-full md:w-[300px] mt-4 py-4 md:px-6 border rounded-lg"
           >
             <BsCart3 size={20} className="mx-3" />
             Add to Cart
