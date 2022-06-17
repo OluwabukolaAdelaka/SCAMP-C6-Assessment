@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import Collections from "./components/Collections";
 import Navigation from "./components/Navigation";
 import "react-toastify/dist/ReactToastify.css";
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-thumbnail.css";
 
 function App() {
   const [count, setCount] = useState(0);

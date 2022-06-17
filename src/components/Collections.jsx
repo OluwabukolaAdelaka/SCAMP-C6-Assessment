@@ -5,11 +5,6 @@ import Product1 from "../assets/product1.jpg";
 import Product2 from "../assets/image-product-2.jpg";
 import Product3 from "../assets/image-product-3.jpg";
 import Product4 from "../assets/image-product-4.jpg";
-//import productThumb1 from "../assets/image-product-1-thumbnail.jpg";
-//import productThumb2 from "../assets/image-product-2-thumbnail.jpg";
-//import productThumb3 from "../assets/image-product-3-thumbnail.jpg";
-//import productThumb4 from "../assets/image-product-4-thumbnail.jpg";
-// import LightGallery from "lightgallery/react";
 import Images from "./Images";
 
 const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
@@ -32,20 +27,7 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
-  // // desktop carousel with thumbnail
-  // const products = [
-  //   { image: productThumb1 },
-  //   { image: productThumb2 },
-  //   { image: productThumb3 },
-  //   { image: productThumb4 },
-  // ];
-
   const [selectedImg, setSelectedImg] = useState(Images[0]);
-  // // light gallery
-  // const onBeforeSlide = (detail) => {
-  //   const { index, prevIndex } = detail;
-  //   console.log(index, prevIndex);
-  // };
 
   return (
     <div className="max-w-[1240px] h-screen mx-auto py-8 grid lg:grid-cols-2 gap-8 px-4">
@@ -57,7 +39,7 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
             alt="product"
           />
         </div>
-        {/* trial */}
+        {/* desktop gallery with thumbnail */}
         <div className="hidden md:flex">
           {Images.map((image, index) => (
             <img
@@ -73,55 +55,6 @@ const Collections = ({ count, onIncrement, onDecrement, onAdd }) => {
             />
           ))}
         </div>
-        {/* <div className="hidden md:flex">
-          <LightGallery
-            elementClassNames="custom-wrapper-class"
-            onBeforeSlide={onBeforeSlide}
-          >
-            <div className="hidden md:flex pt-6">
-              <a
-                href={Product1}
-                className="border rounded-xl object-contain w-[50%] h-[50%] "
-              >
-                <img
-                  src={productThumb1}
-                  className="border-2 border-primary-100 rounded-xl opacity-40 cursor-pointer hover:transition"
-                  alt="Product 1"
-                />
-              </a>
-              <a
-                href={Product2}
-                className="border rounded-xl object-contain w-[50%] h-[50%]"
-              >
-                <img
-                  src={productThumb2}
-                  className="border rounded-xl cursor-pointer"
-                  alt="Product 2"
-                />
-              </a>
-              <a
-                href={Product3}
-                className="border rounded-xl object-contain w-[50%] h-[50%]"
-              >
-                <img
-                  src={productThumb3}
-                  className="border rounded-xl cursor-pointer "
-                  alt="Product 3"
-                />
-              </a>
-              <a
-                href={Product4}
-                className="border rounded-xl object-contain w-[50%] h-[50%]"
-              >
-                <img
-                  src={productThumb4}
-                  className="border rounded-xl cursor-pointer"
-                  alt="Product 4"
-                />
-              </a>
-            </div>
-          </LightGallery>
-        </div> */}
       </div>
       {/* mobile carousel */}
       <div className="flex justify-center items-center  md:hidden relative">
